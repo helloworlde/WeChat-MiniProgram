@@ -1,0 +1,26 @@
+<view class="container">
+ <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view>
+      <view class="headView">
+        <image src="../imgs/head.jpg" class="headPicture"></image>
+      </view>
+      <view class="infoView"><label class="infoTitle">编号：</label><label class="infoValue">{{user.id}}</label></view>
+      <view class="infoView"><label class="infoTitle">姓名：</label><label class="infoValue">{{user.username}}</label></view>
+      <view class="infoView"><label class="infoTitle">年龄：</label><label class="infoValue">{{user.age}}</label></view>
+      <view class="infoView"><label class="infoTitle">性别：</label><label class="infoValue">{{user.sex}}</label></view>
+      <view class="infoView"><label class="infoTitle">学校：</label><label class="infoValue">{{user.school}}</label></view>
+      <view class="infoView"><label class="infoTitle">专业：</label><label class="infoValue">{{user.major}}</label></view>
+      <view class="infoView"><label class="infoTitle">地址：</label><label class="infoValue">{{user.address}}</label></view>
+      <view class="infoView"><label class="infoTitle">生日：</label><label class="infoValue">{{user.birthday}}</label></view>
+    </view>
+    
+  </scroll-view>
+  <view class="button-group">
+     <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="updateUser" class="button-size">
+      修改信息
+    </button>
+    <button type="warn" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="deleteUser" class="button-size">
+      删除
+    </button>
+  </view>
+</view>

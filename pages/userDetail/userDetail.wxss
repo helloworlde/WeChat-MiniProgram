@@ -1,0 +1,22 @@
+.headView{
+    height: 25%;
+    width: 100%;
+    background-color: darkgray;
+    align-content: center;
+}
+.headPicture{
+    height: 150rpx;
+    width: 150rpx;
+}
+infoView{
+    padding-top: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.infoTitle{
+    color: lightgray;
+    
+}
+.infoValue{
+   color: lightgray;
+}

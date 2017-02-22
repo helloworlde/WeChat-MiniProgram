@@ -1,0 +1,15 @@
+<view class="container1">
+  <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view wx:for="{{usersData}}" wx:for-item="user" wx:key="user" style="margin:0rpx;margin-bottom:15rpx;margin-top:15rpx;height:120rpx;" >
+      <view bindtap="viewUserDetail" id="{{user.id}}" data-user="{{user}}">
+        <view>
+          <image src="../imgs/head.jpg" style="width:120rpx;height:120rpx"></image>
+        </view>
+        <view style="margin-top:-110rpx;margin-left:150rpx">
+          <view>{{user.username}}</view>
+          <view style="color:#b9bdbe">{{user.school}}</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
