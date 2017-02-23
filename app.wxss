@@ -230,8 +230,12 @@ checkbox, radio{
 
 .button-group{
     width: 95%;
+    margin-bottom: 80rpx;
 }
 
+.buttonMargin{
+  margin-top: 50rpx;
+}
 
 .picker{
     padding: 13px;
@@ -253,4 +257,9 @@ checkbox, radio{
 
 .userinfo-nickname {
   color: #aaa;
+}
+
+.headPic{
+  width:120rpx;
+  height:120rpx
 }

@@ -42,7 +42,7 @@
       </view>
     </view>
     <view class="button-group">
-      <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register" class="button-size">
+      <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register" class="button-size buttonMargin">
         注册
       </button>
     </view>

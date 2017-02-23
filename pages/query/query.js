@@ -12,6 +12,13 @@ Page({
     },
 
     onLoad: function (query) {
+
+        wx.showNavigationBarLoading()
+
+        wx.setNavigationBarTitle({
+            title: '用户信息'
+        })
+
         var that = this;
         var msg = ''
         that.querying()
@@ -44,13 +51,11 @@ Page({
                 })
             },
             complete: function () {
+                wx.hideNavigationBarLoading()
                 that.querying()
-
             }
         })
-        wx.setNavigationBarTitle({
-            title: '用户信息'
-        })
+
     },
     querying: function (e) {
         this.setData({

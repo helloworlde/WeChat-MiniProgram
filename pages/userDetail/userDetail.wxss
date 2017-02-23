@@ -1,22 +1,68 @@
-.headView{
-    height: 25%;
-    width: 100%;
-    background-color: darkgray;
-    align-content: center;
+.headView {
+  height: 25%;
+  width: 100%;
+  background-color: darkgray;
+  align-content: center;
 }
-.headPicture{
-    height: 150rpx;
-    width: 150rpx;
+
+.headPicture {
+  height: 150rpx;
+  width: 150rpx;
 }
-infoView{
-    padding-top: 5%;
-    padding-left: 3%;
-    padding-right: 3%;
+
+infoView {
+  padding-top: 5%;
+  padding-left: 3%;
+  padding-right: 3%;
 }
-.infoTitle{
-    color: lightgray;
-    
+
+.infoTitle {
+  margin: 30rpx;
 }
-.infoValue{
-   color: lightgray;
+
+.blank {
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.infoValue {
+  color: #b9b9b9;
+  margin-left: 50rpx;
+  margin: 20rpx;
+}
+
+.username {
+  margin-left: 150rpx;
+  margin-top: -140rpx;
+}
+
+.userid {
+  margin-left: 150rpx;
+}
+
+.detail {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+
+.headBanner {
+  height: 150rpx;
+}
+
+.headPicMargin {
+  margin-top: 20rpx;
+}
+
+.usernameText {
+  color: #353535;
+}
+
+.sextext {
+  margin-left: 50rpx;
+  color: #989898;
+}
+
+.idtext {
+  color: #989898;
 }

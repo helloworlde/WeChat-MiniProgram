@@ -12,7 +12,7 @@
     <text class="userinfo-nickname">{{networkType.networkType}}</text>
   </view>
   <view class="button-group">
-    <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="queryUsers" class="button-size">
+    <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="queryUsers" class="button-size buttonMargin">
       查询
     </button>
   </view>

@@ -1,18 +1,16 @@
-
-<!--index.wxml-->
 <view class="container">
   <view bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
   <view class="button-group">
-    <button type="primary" loading="{{addUserLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login"  class="button-size">
+    <button type="primary" loading="{{addUserLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login"  class="button-size buttonMargin">
       登录
     </button>
-    <button type="default" loading="{{queryLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register" class="button-size">
+    <button type="default" loading="{{queryLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register" class="button-size buttonMargin">
       注册
     </button>
-    <button type="default" loading="{{queryLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="query" class="button-size">
+    <button type="default" loading="{{queryLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="query" class="button-size buttonMargin">
       查询
     </button>
   </view>
