@@ -31,7 +31,12 @@
         </picker>
       </view>
       <view class="section">
-        <input bindinput="inputAddress" placeholder="地址" />
+        <view style="width:100%">
+          <input class="addressInput" bindinput="inputAddress" bindtap="getLocation" placeholder="地址" value="{{address}}">
+        </input>
+        </view>
+        
+
       </view>
       <view class="section">
         <picker mode="date" value="{{birthday}}" start="1900-01-01" end="2099-12-31" bindchange="inputBirthday">

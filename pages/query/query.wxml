@@ -3,7 +3,7 @@
     <view wx:for="{{usersData}}" wx:for-item="user" wx:key="user" style="margin:0rpx;margin-bottom:15rpx;margin-top:15rpx;height:120rpx; background:#ffffff" >
       <view bindtap="viewUserDetail" id="{{user.id}}" data-user="{{user}}">
         <view>
-          <image src="../imgs/head.jpg" class="headPic"></image>
+          <image src='http://119.29.99.89{{user.headImg}}' class="headPic"></image>
         </view>
         <view style="margin-top:-110rpx;margin-left:150rpx">
           <view>{{user.username}}</view>

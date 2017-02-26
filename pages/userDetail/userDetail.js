@@ -1,19 +1,28 @@
 var app = getApp()
+var util = require('../../utils/util.js')
 var id = ''
+var birthday = ''
 Page({
     data: {
         toView: 'red',
         scrollTop: 100,
         user: '',
+        birthday: ''
     },
 
     onLoad: function (e) {
         //load user data from previous page 
+        var that = this
         this.setData({
-            user: app.user
+            user: app.user,
         })
         id = this.data.user.id
-        console.log(this.data.user.id)
+        birthday = util.formatTime(new Date(this.data.user.birthday))
+        console.log(birthday)
+        this.setData({
+            birthday:birthday
+        })
+       
     },
 
     //navigete to userDetail page for view user information 
@@ -61,7 +70,10 @@ Page({
                 })
             }
         })
+    },
+    formatime: function (date) {
+        var newDate =  util.formatTime(new Date(date))
+        console.log(newDate)
+        return newDate
     }
-
-
 })

@@ -1,7 +1,7 @@
 <view class="background:#ebebeb">
     <view>
       <view class="section detail headBanner">
-        <view class="infoTitle"><image src="../imgs/head.jpg"  class="headPic headPicMargin"></image></view>
+        <view class="infoTitle"><image src='http://119.29.99.89{{user.headImg}}'  class="headPic headPicMargin"></image></view>
         <view class="infoTitle">
           <view class="username"><text class="usernameText">{{user.username}}</text> <text class="sextext">{{user.sex}}</text></view>
           <view class="userid"><text class="idtext">ID:</text> <text class="idtext">{{user.id}}</text></view>
@@ -11,7 +11,7 @@
       <view class="section detail">
         <view class="infoTitle blank"><label>年龄</label><label class="infoValue">{{user.age}}</label></view>
         <view><hr></hr></view>
-        <view class="infoTitle blank"><label>生日</label><label class="infoValue">{{user.birthday}}</label></view>
+        <view class="infoTitle blank"><label>生日</label><label class="infoValue">{{birthday}}</label></view>
       </view>
 
       <view class="section detail">

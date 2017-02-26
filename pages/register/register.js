@@ -1,4 +1,5 @@
 var app = getApp();
+var amapFile = require('../lib/amap-wx.js');
 Page({
     data: {
         toView: 'red',
@@ -17,15 +18,15 @@ Page({
         address: '',
         birthday: '',
 
-        sexs:['男','女'],
-        schools:[
+        sexs: ['男', '女'],
+        schools: [
             '辽宁工程技术大学',
             '大连理工大学',
             '大连海事大学',
             '大连交通大学',
             '兰州大学'
         ],
-        majors:[
+        majors: [
             '软件工程',
             '网络工程',
             '计算机科学与技术',
@@ -89,8 +90,8 @@ Page({
             })
         } else {
             wx.showModal({
-                title:"错误",
-                showCancel:false,
+                title: "错误",
+                showCancel: false,
                 content: '请输入用户信息'
             })
 
@@ -141,5 +142,57 @@ Page({
             birthday: e.detail.value
         })
     },
+    getLocation: function () {
+
+        wx.showNavigationBarLoading()
+
+        var that = this
+        var latitude = ''
+        var longitude = ''
+        var requestUrl = 'http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&output=json&pois=1&ak=TA5hUEqvhKo3sBYT3pXui5jfCkgRVrPQ'
+        wx.getLocation({
+            type: 'gcj02 ',
+            success: function (res) {
+                latitude = res.latitude
+                longitude = res.longitude
+                requestUrl = requestUrl + '&location=' + latitude + ',' + longitude
+
+                wx.request({
+                    url: requestUrl,
+                    data: {
+                        location: latitude + ',' + longitude
+                    },
+                    method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                    header: { 'Content-Type': 'application/json' },
+                    success: function (res) {
+                        var loc = res.data.split('formatted_address":"')[1].split('"')[0]
+                       that.setData({
+                            address: loc
+                        })
+                    },
+                    fail: function () {
+                        // fail
+                    },
+                    complete: function () {
+                        wx.hideNavigationBarLoading()
+                    }
+                })
+            }
+        })
+
+        // wx.navigateTo({
+        //   url: '../searchLocation/searchLocation',
+        //   success: function(res){
+        //     // success
+        //   },
+        //   fail: function() {
+        //     // fail
+        //   },
+        //   complete: function() {
+        //     // complete
+        //   }
+        // })
+
+    }
 
 })
