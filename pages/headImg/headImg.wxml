@@ -1,0 +1,10 @@
+<view>
+  <view>
+    <image mode="aspectFit" class="headImg" src="{{headImgPath}}"></image>
+  </view>
+  <view>
+    <button type="primary" loading="{{uploading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="ensureUpload" class="button-size buttonMargin">
+      上传头像
+    </button>
+  </view>
+</view>

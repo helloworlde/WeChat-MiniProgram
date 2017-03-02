@@ -9,6 +9,7 @@ Page({
         disabled: false,
         plain: false,
         loading: false,
+        uploading: false,
 
         username: '',
         sex: '',
@@ -166,7 +167,7 @@ Page({
                     header: { 'Content-Type': 'application/json' },
                     success: function (res) {
                         var loc = res.data.split('formatted_address":"')[1].split('"')[0]
-                       that.setData({
+                        that.setData({
                             address: loc
                         })
                     },
@@ -179,20 +180,69 @@ Page({
                 })
             }
         })
+    },
+    uploadHeadImg: function () {
 
-        // wx.navigateTo({
-        //   url: '../searchLocation/searchLocation',
-        //   success: function(res){
-        //     // success
-        //   },
-        //   fail: function() {
-        //     // fail
-        //   },
-        //   complete: function() {
-        //     // complete
-        //   }
-        // })
-
+        wx.chooseImage({
+            count: 1, // 最多可以选择的图片张数，默认9
+            sizeType: ['original', 'compressed'], // original 原图，compressed 压缩图，默认二者都有
+            sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有
+            success: function (res) {
+                app.headImgPath = res.tempFilePaths[0]
+                console.log(res)
+                wx.previewImage({
+                    // current: 'String', // 当前显示图片的链接，不填则默认为 urls 的第一张
+                    urls: [res.tempFilePaths[0]],
+                    success: function (res) {
+                        wx.uploadFile({
+                            url: 'http://119.29.99.89:8080/addUser',
+                            filePath: tempFilePaths,
+                            name: 'headPic',
+                            // header: {}, // 设置请求的 header
+                            formData: {}, // HTTP 请求中其他额外的 form data
+                            success: function (res) {
+                                console.log(res)
+                            },
+                            fail: function () {
+                                // fail
+                            },
+                            complete: function () {
+                                // complete
+                            }
+                        })
+                    },
+                    fail: function () {
+                        // fail
+                    },
+                    complete: function () {
+                        // complete
+                    }
+                })
+                // wx.navigateTo({
+                //   url: '../headImg/headImg',
+                //   success: function(res){
+                //     // success
+                //   },
+                //   fail: function() {
+                //     // fail
+                //   },
+                //   complete: function() {
+                //     // complete
+                //   }
+                // })
+                // var tempFilePaths = res.tempFilePaths; 
+                // 
+            },
+            fail: function () {
+                // fail
+            },
+            complete: function () {
+                // complete
+            }
+        })
+    },
+    formSubmit:function(e){
+        console.log(e)
     }
 
 })

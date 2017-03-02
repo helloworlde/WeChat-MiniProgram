@@ -1,55 +1,65 @@
 <view class="page">
   <view class="page__bd">
-    <view>
-      <view class="section">
-      </view>
-      <view class="section">
-        <input bindinput="inputUsername" placeholder="用户名" />
-      </view>
-      <view class="section">
-        <picker bindchange="inputSex" value="{{sexs[index]}}" range="{{sexs}}">
-          <view class="picker">
-            性别：{{sex}}
-          </view>
-        </picker>
-      </view>
-      <view class="section">
-        <input bindinput="inputAge" placeholder="年龄" />
-      </view>
-      <view class="section">
-        <picker bindchange="inputSchool" value="{{schools[index]}}" range="{{schools}}">
-          <view class="picker">
-            学校：{{school}}
-          </view>
-        </picker>
-      </view>
-      <view class="section">
-        <picker bindchange="inputMajor" value="{{majors[index]}}" range="{{majors}}">
-          <view class="picker">
-            专业：{{major}}
-          </view>
-        </picker>
-      </view>
-      <view class="section">
-        <view style="width:100%">
-          <input class="addressInput" bindinput="inputAddress" bindtap="getLocation" placeholder="地址" value="{{address}}">
-        </input>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view>
+        <view class="section">
         </view>
-        
-
-      </view>
-      <view class="section">
-        <picker mode="date" value="{{birthday}}" start="1900-01-01" end="2099-12-31" bindchange="inputBirthday">
-        <view class="picker">
-            出生日期: {{birthday}}
+        <view class="section">
+          <input bindinput="inputUsername" placeholder="用户名" />
         </view>
-    </picker>
+        <view class="section">
+          <picker bindchange="inputSex" value="{{sexs[index]}}" range="{{sexs}}">
+            <view class="picker">
+              性别：{{sex}}
+            </view>
+          </picker>
+        </view>
+        <view class="section">
+          <input bindinput="inputAge" placeholder="年龄" />
+        </view>
+        <view class="section">
+          <picker bindchange="inputSchool" value="{{schools[index]}}" range="{{schools}}">
+            <view class="picker">
+              学校：{{school}}
+            </view>
+          </picker>
+        </view>
+        <view class="section">
+          <picker bindchange="inputMajor" value="{{majors[index]}}" range="{{majors}}">
+            <view class="picker">
+              专业：{{major}}
+            </view>
+          </picker>
+        </view>
+        <view class="section">
+          <view style="width:100%">
+            <input class="addressInput" bindinput="inputAddress" bindtap="getLocation" placeholder="地址" value="{{address}}">
+            </input>
+          </view>
+        </view>
+        <view class="section">
+          <picker mode="date" value="{{birthday}}" start="1900-01-01" end="2099-12-31" bindchange="inputBirthday">
+            <view class="picker">
+              出生日期: {{birthday}}
+            </view>
+          </picker>
+        </view>
       </view>
+      <view class="btn-area">
+        <button type="default" loading="{{uploading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="uploadHeadImg" class="button-size buttonMargin">
+          上传头像
+        </button>
+        <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register" class="button-size buttonMargin">
+          注册
+        </button>
+        <button type="submit" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" class="button-size buttonMargin">
+          提交
+        </button>
+      </view>
+      <view class="btn-area">
+        <button formType="submit">Submit</button>
+        <button formType="reset">Reset</button>
     </view>
-    <view class="button-group">
-      <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register" class="button-size buttonMargin">
-        注册
-      </button>
-    </view>
+    </form>
   </view>
 </view>

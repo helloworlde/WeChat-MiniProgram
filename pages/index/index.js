@@ -6,28 +6,33 @@ Page({
     userInfo: {}
   },
   //事件处理函数
-  login: function() {
+  login: function () {
     wx.navigateTo({
       url: '../login/login'
     })
   },
-  register:function(){
+  register: function () {
     wx.navigateTo({
       url: '../register/register'
     })
   },
-  query:function(){
+  query: function () {
     wx.navigateTo({
       url: '../query/query'
+    })
+  },
+  vedio: function () {
+    wx.navigateTo({
+      url: '../vedio/vedio'
     })
   },
   onLoad: function () {
     var that = this
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
+    app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
-        userInfo:userInfo
+        userInfo: userInfo
       })
     })
   }

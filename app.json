@@ -5,6 +5,7 @@
     "pages/register/register",
     "pages/query/query",
     "pages/userDetail/userDetail",
+    "pages/headImg/headImg",
     "pages/searchLocation/searchLocation",
     "pages/logs/logs"
   ],
