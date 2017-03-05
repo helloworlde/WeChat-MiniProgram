@@ -56,13 +56,25 @@ infoView {
 
 .usernameText {
   color: #353535;
+  margin-right: 50rpx;
 }
 
-.sextext {
+.seximg {
   margin-left: 50rpx;
-  color: #989898;
+  /*color: #989898;*/
 }
 
 .idtext {
   color: #989898;
+}
+
+.infoImg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.infoHeadImg{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
 }

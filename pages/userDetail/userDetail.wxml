@@ -1,27 +1,63 @@
 <view class="background:#ebebeb">
-    <view>
-      <view class="section detail headBanner">
-        <view class="infoTitle"><image src='http://119.29.99.89{{user.headImg}}'  class="headPic headPicMargin"></image></view>
-        <view class="infoTitle">
-          <view class="username"><text class="usernameText">{{user.username}}</text> <text class="sextext">{{user.sex}}</text></view>
-          <view class="userid"><text class="idtext">ID:</text> <text class="idtext">{{user.id}}</text></view>
+  <view>
+    <view class="section detail headBanner">
+      <view class="infoTitle">
+        <image src='http://119.29.99.89{{user.headImg}}' class="headPic headPicMargin"></image>
+      </view>
+      <view class="infoTitle">
+        <view class="username">
+          <view wx:if="{{user.sex}}=='男'">
+            <image src="../imgs/username.png" class="infoHeadImg"></image>
+            <text class="usernameText">{{user.username}}</text>
+            <image src="../imgs/male.png" class="infoImg seximg"></image>
+          </view>
+          <view wx:elif="{{user.sex}}=='女'">
+            <image src="../imgs/username.png" class="infoImg seximg"></image>
+            <text class="usernameText">{{user.username}}</text>
+            <image src="../imgs/female.png" class="infoImg seximg"></image>
+          </view>
+          <view wx:else>
+            <image src="../imgs/username.png" class="infoImg seximg"></image>
+            <text class="usernameText">{{user.username}}</text>
+            <image src="../imgs/unknowSex.png" class="infoImg seximg"></image>
+          </view>
+        </view>
+        <view class="userid">
+          <image src="../imgs/id.png" class="infoHeadImg"></image>
+          <text class="idtext">{{user.id}}</text>
         </view>
       </view>
-      
-      <view class="section detail">
-        <view class="infoTitle blank"><label>年龄</label><label class="infoValue">{{user.age}}</label></view>
-        <view><hr></hr></view>
-        <view class="infoTitle blank"><label>生日</label><label class="infoValue">{{birthday}}</label></view>
+    </view>
+    <view class="section detail">
+      <view class="infoTitle blank">
+        <image src="../imgs/age.png" class="infoImg"></image>
+        <label class="infoValue">{{user.age}}</label>
       </view>
-
-      <view class="section detail">
-        <view class="infoTitle blank"><label>学校</label><label class="infoValue">{{user.school}}</label></view>
-        <view class="infoTitle blank"><label>专业</label><label class="infoValue">{{user.major}}</label></view>
-        <view class="infoTitle blank"><label>地址</label><label class="infoValue">{{user.address}}</label></view>
+      <view>
+        <hr></hr>
+      </view>
+      <view class="infoTitle blank">
+        <image src="../imgs/birthday.png" class="infoImg"></image>
+        <label class="infoValue">{{birthday}}</label>
       </view>
     </view>
+    <view class="section detail">
+      <view class="infoTitle blank">
+        <image src="../imgs/school.png" class="infoImg"></image>
+        <label class="infoValue">{{user.school}}</label>
+      </view>
+      <view class="infoTitle blank">
+        <image src="../imgs/major.png" class="infoImg"></image>
+        <label class="infoValue">{{user.major}}</label>
+      </view>
+      <view class="infoTitle blank">
+        <image src="../imgs/location.png" class="infoImg"></image>
+        <label class="infoValue">{{user.address}}</label>
+      </view>
+    </view>
+  </view>
   <view class="button-group">
-     <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="updateUser" class="button-size buttonMargin">
+    <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="updateUser" class="button-size buttonMargin">
       修改信息
     </button>
     <button type="warn" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="deleteUser" class="button-size buttonMargin">

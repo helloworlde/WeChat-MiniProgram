@@ -13,8 +13,5 @@
     <button type="default" loading="{{queryLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="query" class="button-size buttonMargin">
       查询
     </button>
-    <button type="default" loading="{{queryLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="vedio" class="button-size buttonMargin">
-      视频
-    </button>
   </view>
 </view>
