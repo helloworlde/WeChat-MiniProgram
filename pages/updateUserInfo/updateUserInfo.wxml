@@ -1,0 +1,53 @@
+<view class="page">
+  <view class="page__bd">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view>
+        <view class="section">
+        </view>
+        <view class="section">
+          <input name="username" value="{{username}}" bindinput="inputUsername" placeholder="用户名" />
+        </view>
+        <view class="section">
+          <picker bindchange="inputSex" name="sex" value="{{sexs[index]}}" range="{{sexs}}">
+            <view>
+              <input name="sex" value="{{sex}}" />
+            </view>
+          </picker>
+        </view>
+        <view class="section">
+          <input name="age" value="{{age}}" bindinput="inputAge" placeholder="年龄" />
+        </view>
+        <view class="section">
+          <picker bindchange="inputSchool" name="school" value="{{schools[index]}}" range="{{schools}}">
+            <view>
+             <input name="school" value="{{school}}" />
+            </view>
+          </picker>
+        </view>
+        <view class="section">
+          <picker bindchange="inputMajor" name="major" value="{{majors[index]}}" range="{{majors}}">
+            <view >
+             <input name="major" value="{{major}}" />
+            </view>
+          </picker>
+        </view>
+        <view class="section">
+          <view style="width:100%">
+            <input name="address" class="addressInput" bindinput="inputAddress" placeholder="地址" value="{{address}}">
+            </input>
+          </view>
+        </view>
+        <view class="section">
+          <picker mode="date" value="{{birthday}}" name="birthday" start="1900-01-01" end="2099-12-31" bindchange="inputBirthday">
+            <view class="picker">
+              出生日期: {{birthday}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="btn-area">
+        <button formType="submit">更新</button>
+      </view>
+    </form>
+  </view>
+</view>

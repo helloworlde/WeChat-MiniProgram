@@ -1,10 +1,10 @@
 var app = getApp();
-var amapFile = require('../lib/amap-wx.js');
+var util = require('../../utils/util.js')
 Page({
     data: {
         toView: 'red',
         scrollTop: 100,
-        usersData: '',
+        user: '',
 
         disabled: false,
         plain: false,
@@ -37,16 +37,32 @@ Page({
     },
 
     onLoad: function (query) {
+        var that = this
+        var user = app.user
+        var birthday = util.formatTime(new Date(user.birthday))
+
+        this.setData({
+            user: user,
+            username: user.username,
+            sex: user.sex,
+            age: user.age,
+            school: user.school,
+            major: user.major,
+            address: user.address,
+            birthday: birthday,
+        })
+
 
         wx.setNavigationBarTitle({
-            title: '添加新用户'
+            title: '更改用户信息'
         })
+
     },
     register: function () {
 
         var that = this;
         var msg = ''
-        that.registering()
+        that.updating()
 
         if (this.data.username != "") {
             wx.request({
@@ -81,7 +97,7 @@ Page({
                     msg = "请求失败"
                 },
                 complete: function () {
-                    that.registering()
+                    that.updating()
                     wx.showToast({
                         title: msg,
                         icon: 'success',
@@ -98,7 +114,7 @@ Page({
 
         }
     },
-    registering: function (e) {
+    updating: function (e) {
         this.setData({
             disabled: !this.data.disabled,
             loading: !this.data.loading
@@ -143,44 +159,7 @@ Page({
             birthday: e.detail.value
         })
     },
-    getLocation: function () {
 
-        wx.showNavigationBarLoading()
-
-        var that = this
-        var latitude = ''
-        var longitude = ''
-        var requestUrl = 'http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&output=json&pois=1&ak=TA5hUEqvhKo3sBYT3pXui5jfCkgRVrPQ'
-        wx.getLocation({
-            type: 'gcj02 ',
-            success: function (res) {
-                latitude = res.latitude
-                longitude = res.longitude
-                requestUrl = requestUrl + '&location=' + latitude + ',' + longitude
-
-                wx.request({
-                    url: requestUrl,
-                    data: {
-                        location: latitude + ',' + longitude
-                    },
-                    method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                    header: { 'Content-Type': 'application/json' },
-                    success: function (res) {
-                        var loc = res.data.split('formatted_address":"')[1].split('"')[0]
-                        that.setData({
-                            address: loc
-                        })
-                    },
-                    fail: function () {
-                        // fail
-                    },
-                    complete: function () {
-                        wx.hideNavigationBarLoading()
-                    }
-                })
-            }
-        })
-    },
     uploadHeadImg: function () {
 
         wx.chooseImage({
@@ -241,8 +220,26 @@ Page({
             }
         })
     },
-    formSubmit:function(e){
-        console.log(e.detail.value)
+    formSubmit: function (e) {
+        var userInfo = e.detail.value;
+        wx.request({
+            url: 'http://119.29.99.89:8080/update',
+            data: {
+                'content-type': 'application/json'
+            },
+            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            // header: {}, // 设置请求的 header
+            success: function (res) {
+                console.log(res)
+            },
+            fail: function () {
+                // fail
+            },
+            complete: function () {
+                // complete
+            }
+        })
+
     }
 
 })

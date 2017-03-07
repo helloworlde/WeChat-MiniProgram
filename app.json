@@ -7,6 +7,7 @@
     "pages/userDetail/userDetail",
     "pages/headImg/headImg",
     "pages/searchLocation/searchLocation",
+    "pages/updateUserInfo/updateUserInfo",
     "pages/logs/logs"
   ],
   "window":{

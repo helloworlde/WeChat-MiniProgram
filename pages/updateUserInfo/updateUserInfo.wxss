@@ -1,0 +1,12 @@
+.locpic{
+    width: 40rpx;
+    height: 40rpx;
+    padding-top:-30px;
+    margin-top: -5%;
+    margin-left: 90%;
+    z-index: 999;
+}
+.addressInput{
+    width: 100%;
+    z-index: -1;
+}

@@ -18,20 +18,19 @@ Page({
         })
         id = this.data.user.id
         birthday = util.formatTime(new Date(this.data.user.birthday))
-        console.log(birthday)
         this.setData({
             birthday:birthday
         })
        
     },
-
-    //navigete to userDetail page for view user information 
-    viewUserDetail: function (e) {
-        var user = e.currentTarget.dataset.user
+    updateUser:function(e){
+        var user = this.data.user
+        app.user = user
         wx.navigateTo({
-            url: '../userDetail/userDetail'
+          url: '../updateUserInfo/updateUserInfo'
         })
     },
+
     deleteUser: function () {
         console.log("delete user " + this.data.user.id)
         var msg = ""
