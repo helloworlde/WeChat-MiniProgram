@@ -46,7 +46,7 @@
         </view>
       </view>
       <view class="btn-area">
-        <button formType="submit">更新</button>
+        <button formType="submit" type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}">更新</button>
       </view>
     </form>
   </view>

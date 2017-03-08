@@ -46,9 +46,9 @@ Page({
 
         var that = this;
         var msg = ''
-        that.registering()
 
         if (this.data.username != "") {
+            that.registering()
             wx.request({
                 url: 'http://119.29.99.89:8080/add',
                 data: {
@@ -241,7 +241,7 @@ Page({
             }
         })
     },
-    formSubmit:function(e){
+    formSubmit: function (e) {
         console.log(e.detail.value)
     }
 

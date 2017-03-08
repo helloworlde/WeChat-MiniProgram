@@ -45,7 +45,7 @@ Page({
             },
             fail: function () {
                 wx.showToast({
-                    title: "网络错误",
+                    title: "请求失败",
                     icon: 'success',
                     duration: 1000
                 })

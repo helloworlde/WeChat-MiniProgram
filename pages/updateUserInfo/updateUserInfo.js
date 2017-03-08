@@ -2,8 +2,6 @@ var app = getApp();
 var util = require('../../utils/util.js')
 Page({
     data: {
-        toView: 'red',
-        scrollTop: 100,
         user: '',
 
         disabled: false,
@@ -43,7 +41,9 @@ Page({
 
         this.setData({
             user: user,
+            id: user.id,
             username: user.username,
+            headImg: user.headImg,
             sex: user.sex,
             age: user.age,
             school: user.school,
@@ -52,23 +52,28 @@ Page({
             birthday: birthday,
         })
 
-
         wx.setNavigationBarTitle({
             title: '更改用户信息'
         })
-
     },
-    register: function () {
 
-        var that = this;
+    updating: function (e) {
+        this.setData({
+            disabled: !this.data.disabled,
+            loading: !this.data.loading
+        })
+    },
+    formSubmit: function (e) {
+        var that = this
         var msg = ''
-        that.updating()
-
         if (this.data.username != "") {
+            that.updating()
             wx.request({
-                url: 'http://119.29.99.89:8080/add',
+                url: 'http://119.29.99.89:8080/update',
                 data: {
+                    id: that.data.id,
                     username: that.data.username,
+                    headImg: that.data.headImg,
                     sex: that.data.sex,
                     age: that.data.age,
                     school: that.data.school,
@@ -82,15 +87,15 @@ Page({
                 },
                 success: function (res) {
                     if (res.data.STATE == "SUCCESSED") {
-                        msg = "添加成功"
+                        msg = "更新成功"
                         setTimeout(function () {
                             wx.navigateBack({
-                                delta: 1, // 回退前 delta(默认为1) 页面
+                                delta: 1,
                             })
                         }, 1000)
                     }
                     else {
-                        msg = "添加失败"
+                        msg = "更新失败"
                     }
                 },
                 fail: function () {
@@ -111,16 +116,8 @@ Page({
                 showCancel: false,
                 content: '请输入用户信息'
             })
-
         }
     },
-    updating: function (e) {
-        this.setData({
-            disabled: !this.data.disabled,
-            loading: !this.data.loading
-        })
-    },
-
 
     inputUsername: function (e) {
         this.setData({
@@ -154,14 +151,12 @@ Page({
     },
 
     inputBirthday: function (e) {
-        console.log(e)
         this.setData({
             birthday: e.detail.value
         })
     },
 
     uploadHeadImg: function () {
-
         wx.chooseImage({
             count: 1, // 最多可以选择的图片张数，默认9
             sizeType: ['original', 'compressed'], // original 原图，compressed 压缩图，默认二者都有
@@ -219,27 +214,6 @@ Page({
                 // complete
             }
         })
-    },
-    formSubmit: function (e) {
-        var userInfo = e.detail.value;
-        wx.request({
-            url: 'http://119.29.99.89:8080/update',
-            data: {
-                'content-type': 'application/json'
-            },
-            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-            // header: {}, // 设置请求的 header
-            success: function (res) {
-                console.log(res)
-            },
-            fail: function () {
-                // fail
-            },
-            complete: function () {
-                // complete
-            }
-        })
-
     }
 
 })
